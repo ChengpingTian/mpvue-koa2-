@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -14,7 +14,8 @@
 	"libVersion": "2.0.4",
 	"appid": "wxd3af66e4a59edfab",
 	"projectname": "readlog",
-	"qcloudRoot":"./server/",
+	"miniprogramRoot": "dist/",
+	"qcloudRoot": "server/",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

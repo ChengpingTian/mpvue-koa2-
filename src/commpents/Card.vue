@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <a :href="detailUrl">
-    <div class="bookpic">
+    <div class="bookpic" @click.stop="previvew">
       <img :src="book.image" mode='widthFix'>
     </div>
     <div class="bookinfo">
@@ -37,7 +37,15 @@ export default {
         return '/pages/details/main?id='+this.book.id;
       }
   },
-  props: ["book"]
+  props: ["book"],
+  methods: {
+    previvew(){
+     wx.previewImage({
+       current:this.book.image,
+       urls:[this.book.image]
+ })
+    }
+  }
 };
 </script>
 <style scoped>

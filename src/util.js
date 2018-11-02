@@ -16,10 +16,9 @@ function request(url, method, data) {
         if (res.data.code == 0) {
           resolve(res.data.data)
         } else {
-          // showMdal(res.data.data.msg)
+          showMdal(res.data.data.msg)
           reject(res.data)
-          console.log(res)
-        }
+         }
 
       }
     })

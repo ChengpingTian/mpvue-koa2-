@@ -54,10 +54,13 @@ export default {
       qcloud.setLoginUrl(config.loginUrl);
       qcloud.login({
         success: function(userInfo) {
+          console.log("登录账号中....");
           qcloud.request({
             url: config.userUrl,
             login: true,
+
             success(userRes) {
+              console.log(111);
               successTips("登录成功");
               self.userInfo = userRes.data.data;
               wx.setStorageSync("userInfo", userRes.data.data);
@@ -65,6 +68,7 @@ export default {
           });
         },
         fail: function(err) {
+          console.log(22222);
           console.log("登录失败", err);
         }
       });
@@ -74,9 +78,26 @@ export default {
         isbn,
         openid: this.userInfo.openId
       });
-      console.log(res);
+     
       if (res.title) {
-        showMdal(`${res.title}` + "添加成功");
+        
+        wx.showModal({
+          title: "提示",
+          content: "添加成功,是否继续添加",
+          success(res) {
+            if (res.confirm) {
+              return false;
+            } else if (res.cancel) {
+
+              wx.switchTab({
+                url: "/pages/books/main"
+              });
+            }
+          }
+        });
+      }
+      else{
+             console.log(111111);
       }
     },
     scanbooks: function() {

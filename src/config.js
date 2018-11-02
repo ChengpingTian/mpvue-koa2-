@@ -1,4 +1,4 @@
-const host="http://localhost:5757"
+const host="https://si1esprz.qcloud.la"
 
 const config={
     host,
